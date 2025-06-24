@@ -10,12 +10,12 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: #f9fafb;
-      color: #111;
+      background: #f5f7fa;
+      color: #0a0a23;
     }
 
     header {
-      background: linear-gradient(to right, #9333ea, #ec4899);
+      background-color: #0a0a23; /* deep navy */
       padding: 1rem;
       text-align: center;
       color: white;
@@ -26,32 +26,45 @@
 
     .container {
       padding: 1.5rem;
+      max-width: 800px;
+      margin: auto;
     }
 
     .article {
       background: white;
-      border-radius: 1rem;
-      padding: 1rem;
+      border-left: 5px solid #0a0a23;
+      border-radius: 0.5rem;
+      padding: 1rem 1.5rem;
       margin-bottom: 1.5rem;
-      box-shadow: 0 2px 8px #00000015;
+      box-shadow: 0 2px 8px #00000010;
+      transition: transform 0.2s ease;
+    }
+
+    .article:hover {
+      transform: translateY(-3px);
     }
 
     .article h2 {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       margin-bottom: 0.5rem;
-      color: #6b21a8;
+      color: #0a0a23;
     }
 
     .article p {
       font-size: 1rem;
+      color: #333;
     }
 
     .article a {
       display: inline-block;
       margin-top: 0.5rem;
       text-decoration: none;
-      color: #9333ea;
+      color: #0a0a23;
       font-weight: bold;
+    }
+
+    .article a:hover {
+      text-decoration: underline;
     }
 
     .loading {
@@ -69,7 +82,7 @@
   </div>
 
   <script>
-    const apiKey = "71705180fe2fa3ddc1b0d88ed77ab39b"; // Paste your GNews API key here
+    const apiKey = "71705180fe2fa3ddc1b0d88ed77ab39b"; // your GNews API key
     const newsContainer = document.getElementById('news');
 
     fetch(`https://gnews.io/api/v4/top-headlines?lang=en&country=us&max=10&token=${apiKey}`)
@@ -82,7 +95,7 @@
           div.innerHTML = `
             <h2>${article.title}</h2>
             <p>${article.description || "No description available."}</p>
-            <a href="${article.url}" target="_blank">Read more ➤</a>
+            <a href="${article.url}" target="_blank">Read full story ➤</a>
           `;
           newsContainer.appendChild(div);
         });
