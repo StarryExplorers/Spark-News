@@ -1,4 +1,4 @@
-const CACHE_NAME = "spark-news-cache-v1";
+const CACHE_NAME = "nova-news-cache-v1";
 const FILES_TO_CACHE = [
   "/",
   "/index.html",
